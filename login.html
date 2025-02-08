@@ -1,0 +1,202 @@
+<!-- Login & Signup Form 🔐
+
+Ek beautiful login/signup page banao
+CSS se form validation aur focus effects improve karo -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg,blue,lightblue,blue);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            background-color: rgba(2, 5, 173, 0.42);
+            backdrop-filter: blur(3px);
+            display: flex;
+            align-items: center;
+            justify-items: center;
+            flex-direction: column;
+            width: 40vw;
+            border-radius: 10px;
+            padding: 10px 5px;
+            min-width: 300px;
+        }
+
+        .logo {
+            padding: 15px;
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        input {
+            background: none;
+            border: 1px solid white;
+            border-radius: 5px;
+            height: 20px;
+            width: 200px;
+            font-size: 16px;
+            color: white;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input::before,
+        input::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input:hover {
+            border-color: rgb(132, 217, 243);
+            box-shadow: 0 0 10px cyan;
+            height: 25px;
+            width: 210px;
+        }
+
+        input:focus {
+            border-color: cyan;
+            box-shadow: 0 0 15px cyan;
+            height: 25px;
+            width: 210px;
+        }
+
+        .text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: aliceblue;
+        }
+
+        .forgot {
+            align-self: center;
+            font-size: smaller;
+            color: #9bb7fd;
+            cursor: pointer;
+        }
+
+        .Username,
+        .Password,
+        .continuewith {
+            padding: 5px 0px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .continuewith {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+        }
+
+        .logos {
+            padding: 5px;
+            width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .login {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            width: 70px;
+            color: aliceblue;
+            background-color: rgba(42, 47, 157, 0.34);
+            border: none;
+            padding: 5px;
+            margin-top: 5px;
+            border-radius: 3px;
+            transition: 0.5s;
+        }
+
+        button:hover {
+            background-color: #1f5cf7;
+            box-shadow: 0 0 10px #1f5cf7, 0 0 40px #1f5cf7;
+            color: white;
+        }
+
+        .wallpaperbtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <h2 class="text">Login Form</h2>
+            <img src="logo.svg" alt="logo" height="50px">
+        </div>
+        <div class="Username text">
+            <div class="username">Email</div>
+            <input type="email">
+        </div>
+        <div class="Password">
+            <div class="password text">Password</div>
+            <input type="password">
+            <div class="forgot text">Forgot password?</div>
+        </div>
+        <div class="signup">
+            <button>Login</button>
+        </div>
+        <div class="continuewith">
+            <div class="with text">Or continue with</div>
+            <div class="logos">
+                <img src="facebook.png" alt="facebook" height="30px">
+                <img src="google.png" alt="google" height="30px">
+            </div>
+        </div>
+        <div class="login text">
+            <div>Don't have an account?</div>
+            <a href="index.html">
+                <button>Signup</button>
+            </a>
+        </div>
+    </div>
+    <button class="wallpaperbtn" id="wallpaperbtn">Wallpaper</button>
+
+    <script>
+        let currentWallpaper = 1;
+        const totalWallpapers = 10;
+
+        document.getElementById("wallpaperbtn").addEventListener("click", function() {
+            document.body.style.backgroundImage = `url('wallpaper${currentWallpaper}.jpg')`;
+            
+            currentWallpaper = (currentWallpaper % totalWallpapers) + 1;
+        });
+    </script>
+</body>
+
+</html>
